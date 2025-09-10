@@ -12,3 +12,4 @@ def only_diff_elements(set_1, set_2):
             if element2 not in set_1:
                 new_set.append(element2)
     return set(new_set)
+#return set_1 ^ set_2
