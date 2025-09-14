@@ -36,4 +36,10 @@ Print text:
      Quae animi affectio suum cuique tribuens atque hanc, quam dico.
     <BLANKLINE>
      Utinam quidem dicerent alium alio beatiorem! Iam ruinas videres
+
+Text is not a string
+    >>> text_indentation(12)
+    Traceback (most recent call last):
+        ...
+    TypeError: text must be a string
     
