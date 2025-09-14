@@ -21,4 +21,4 @@ def text_indentation(text):
         TypeError: if text is not a string
     """
     new_text = text.replace(".", ".\n\n").replace("?", "?\n\n").replace(":", ":\n\n")
-    print(new_text)
+    print(new_text, end="")
