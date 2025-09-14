@@ -34,3 +34,9 @@ Matrix rows with the same size
     Traceback (most recent call last):
         ...
     TypeError: Each row of the matrix must have the same size
+
+Dividing by float(inf)
+    >>> matrix_divided([[1, 2, 3], [4, 5, 6]], float('inf'))
+    Traceback (most recent call last):
+        ...
+    TypeError: div must be a number
