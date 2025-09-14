@@ -32,7 +32,7 @@ def matrix_divided(matrix, div):
         if len_matrix != 0 and len(cont) != len_matrix:
             raise TypeError("Each row of the matrix must have the same size")
         for num in cont:
-            if type(num) not in [float, int]:
+            if not isinstance(num, (int, float)):
                 raise TypeError("matrix must be a matrix (list of lists) of integers/floats")
         len_matrix = len(cont)
     new_matrix = list(map(lambda x: list(map(lambda y: round(y/div, 2), x)), matrix))
