@@ -2,6 +2,8 @@
 """
     Returns a sum of 2 numbers
 """
+
+
 def add_integer(a, b=98):
     """ Function that adds two int or float numbers.
     Args:
@@ -22,5 +24,5 @@ def add_integer(a, b=98):
         raise TypeError("b must be an integer")
     if type(a) or type(b) is [float]:
         a = int(a)
-        b = int(b)    
+        b = int(b)
     return a + b
