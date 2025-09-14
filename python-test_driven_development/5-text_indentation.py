@@ -23,5 +23,6 @@ def text_indentation(text):
     if not isinstance(text, str):
         raise TypeError("text must be a string")
     new_text = text.replace(".", ".\n\n").replace("?", "?\n\n").replace(":", ":\n\n")
-    #clean_text = " ".join(new_text.split())
-    print(new_text, end="")
+    clean_lines = [line.lstrip() for line in new_text.splitlines()]
+    clean_text = "\n".join(clean_lines)
+    print(clean_text, end="")
