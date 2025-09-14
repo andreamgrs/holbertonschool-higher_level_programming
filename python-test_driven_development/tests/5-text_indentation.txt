@@ -42,4 +42,10 @@ Text is not a string
     Traceback (most recent call last):
         ...
     TypeError: text must be a string
+
+Text is None:
+    >>> text_indentation()
+    Traceback (most recent call last):
+        ...
+    TypeError: missing one argument
     

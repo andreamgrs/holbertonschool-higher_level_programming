@@ -7,7 +7,7 @@ after each of these characters: ., ? and :
 """
 
 
-def text_indentation(text):
+def text_indentation(text=None):
     """ Function prints a text with 2 new lines
     after each of these characters: ., ? and :
 
@@ -20,6 +20,8 @@ def text_indentation(text):
     Raises:
         TypeError: if text is not a string
     """
+    if text is None:
+        raise TypeError("missing one argument")
     if not isinstance(text, str):
         raise TypeError("text must be a string")
     new_text = text.replace(".", ".\n\n").replace("?", "?\n\n").replace(":", ":\n\n")
