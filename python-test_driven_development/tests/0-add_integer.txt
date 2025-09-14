@@ -22,8 +22,8 @@ Adding 2
     100
 
 Subtracting 100.3 and 2
-	    >>> add_integer(100.3, -2)
-	    98
+	>>> add_integer(100.3, -2)
+    98
 
 Adding an integer number and a string
     >>> add_integer(4, "School")
@@ -36,3 +36,5 @@ Passing None
     Traceback (most recent call last):
 	      ...
     TypeError: a must be an integer
+
+
