@@ -4,6 +4,8 @@
 This module is composed by a function that divides the numbers of a matrix
 
 """
+
+
 def matrix_divided(matrix, div):
     """ Function that divides the integer/float numbers of a matrix
 
