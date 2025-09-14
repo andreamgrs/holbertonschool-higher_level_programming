@@ -52,5 +52,11 @@ Print square size float and less than 0:
         ...
     TypeError: size must be an integer
 
+Print square size missing one argument:
+    >>> print_square()
+    Traceback (most recent call last):
+        ...
+    TypeError: missing one argument
+
 
 

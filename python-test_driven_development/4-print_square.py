@@ -6,7 +6,7 @@ Function that that prints a square with the character #.
 """
 
 
-def print_square(size):
+def print_square(size=None):
     """ Function that prints a square with the character #.
 
     Args:
@@ -20,6 +20,8 @@ def print_square(size):
         TypeError: if size is float and less than 0
         ValueError: if size is less than 0
     """
+    if size is None:
+        raise TypeError("missing one argument")
     if type(size) not in [int]:
         raise TypeError("size must be an integer")
     if size < 0:
