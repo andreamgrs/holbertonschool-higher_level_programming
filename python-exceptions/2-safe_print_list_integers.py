@@ -6,6 +6,8 @@ def safe_print_list_integers(my_list=[], x=0):
             print("{:d}".format(my_list[cont]), end="")
         except IndexError:
             pass
+        except TypeError:
+            pass
         else:
             cont = cont + 1
     print()
