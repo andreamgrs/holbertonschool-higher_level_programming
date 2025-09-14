@@ -7,8 +7,6 @@ Using ``add_integer``
 First import ´´add_integer`` from the ``0-add_integer`` file:
     >>> add_integer = __import__('0-add_integer').add_integer
 
-Tests:
-
 Adding 1 and 2
     >>> add_integer(1, 2)
     3
@@ -22,7 +20,7 @@ Adding 2
     100
 
 Subtracting 100.3 and 2
-	>>> add_integer(100.3, -2)
+    >>> add_integer(100.3, -2)
     98
 
 Adding an integer number and a string
