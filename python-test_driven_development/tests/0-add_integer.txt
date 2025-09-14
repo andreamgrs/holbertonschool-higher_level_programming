@@ -36,22 +36,19 @@ Passing None
     TypeError: a must be an integer
 
 Float overflow
-    >>> add_integer(float('inf'), 2)
+    >>> add_integer(float('inf'), 0)
     Traceback (most recent call last):
-        ...
-    TypeError: a must be an integer
+            ...
+    OverflowError: error float overflow
 
-    >>> add_integer(2, float('-inf'))
+    >>> add_integer(0, float('-inf'))
     Traceback (most recent call last):
-        ...
-    TypeError: b must be an integer
+            ...
+    OverflowError: error float overflow
 
-    >>> add_integer(float('nan'), 2)
+Case NaN:
+
+    >>> add_integer(0, float('nan'))
     Traceback (most recent call last):
-        ...
-    TypeError: a must be an integer
-
-
-
-
-
+            ...
+    ValueError: cannot convert float NaN to integer
