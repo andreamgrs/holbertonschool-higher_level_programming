@@ -39,12 +39,12 @@ Float overflow
     >>> add_integer(float('inf'), 0)
     Traceback (most recent call last):
             ...
-    OverflowError: error float overflow
+    TypeError: a must be an integer
 
     >>> add_integer(0, float('-inf'))
     Traceback (most recent call last):
             ...
-    OverflowError: error float overflow
+    TypeError: b must be an integer
 
 Case NaN:
 
