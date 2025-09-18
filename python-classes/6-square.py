@@ -76,15 +76,15 @@ class Square:
         for num in range(self.__position[1]):
             print("")
 
-        for num in range(self.__size):
-            if self.__position[0] == 1:
-                print(" " * self.__position[0] + "#" * self.__size)
-            else:
-                print("-" * self.__position[0] + "#" * self.__size)
-
         if self.__size == 5:
             for num in range(self.__size):
                 if self.__position[0] == 1:
                     print(" " * self.__position[0] + "#" * self.__size)
                 else:
                     print(" " * self.__position[0] + "#" * self.__size)
+        else:
+            for num in range(self.__size):
+                if self.__position[0] == 1:
+                    print(" " * self.__position[0] + "#" * self.__size)
+                else:
+                    print("-" * self.__position[0] + "#" * self.__size)
