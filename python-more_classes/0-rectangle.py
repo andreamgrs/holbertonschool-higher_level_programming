@@ -2,6 +2,7 @@
 """Module for a rectangle class
 """
 
+
 class Rectangle:
     """Class for rectangle
     """
