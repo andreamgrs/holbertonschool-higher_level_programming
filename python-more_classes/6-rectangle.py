@@ -9,7 +9,10 @@ class Rectangle:
     Attributes:
         __width(int): Width of the rectangle (private).
         __height(int): Height of the rectangle (private).
+        cont(int): public class attribute.
     """
+    number_of_instances = 0
+
     def __init__(self, width=0, height=0):
         """Initializes a rectangle instance.
 
@@ -20,6 +23,7 @@ class Rectangle:
         """
         self.width = width  #: call the setter
         self.height = height
+        Rectangle.number_of_instances = Rectangle.number_of_instances + 1
 
     @property
     def width(self):
@@ -94,5 +98,7 @@ class Rectangle:
         return f"Rectangle({self.__width}, {self.__height})"
 
     def __del__(self):
-        """Method that return a string when an instance of Rectangle is deleted"""
+        """Method that return a string when an instance
+        of Rectangle is deleted"""
         print("Bye rectangle...")
+        Rectangle.number_of_instances = Rectangle.number_of_instances - 1
