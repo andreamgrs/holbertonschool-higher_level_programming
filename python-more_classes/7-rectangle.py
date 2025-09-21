@@ -92,8 +92,8 @@ class Rectangle:
             return
         new_sym = str(self.print_symbol)
         for num in range(self.__height):
-            str_rec = (new_sym * self.__width)
-        return "".join(str_rec)
+            str_rec.append(new_sym * self.__width)
+        return "\n".join(str_rec)
 
     def __repr__(self):
         """Method that return a string representation of the rectangle"""
