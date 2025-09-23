@@ -3,7 +3,7 @@ def lookup(obj):
     """Function that returns the list of available attributes
     and methods of an object.
     Args:
-            obj(int): object
+            obj: instance of a class
     Returns:
             List of available attributes and methods of an object.
     """
