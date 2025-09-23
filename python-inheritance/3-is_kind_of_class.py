@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" Defines the function that returns True if the object is an instance
+""" Defines the function that returns True/False if the object is an instance
     of a class or of a class that inherited from, the specified class.
    """
 
