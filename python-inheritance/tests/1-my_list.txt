@@ -1,0 +1,16 @@
+The ``1-my_list`` module
+============================
+
+Using ``print_sorted``
+---------------------
+
+First import ´´MyList`` from the ``1-my_list`` file:
+    >>> MyList = __import__('1-my_list').MyList
+
+Print my_list
+    >>> print(my_list)
+    [1, 4, 2, 3, 5]
+
+Print my_list sorted
+    >>> my_list.print_sorted()
+    [1, 2, 3, 4, 5]
