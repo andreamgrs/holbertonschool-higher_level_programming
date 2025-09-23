@@ -1,0 +1,28 @@
+The ``7-base_geometry`` module
+============================
+
+Using ``BaseGeometry``
+---------------------
+
+First import ´´BaseGeometry`` from the ``7-base_geometry`` file:
+    >>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+
+Print Exception TypeError, value not int
+    >>> bg = BaseGeometry()
+    >>> bg.integer_validator("name", "John")
+    >>> print("[{}] {}".format(e.__class__.__name__, e))
+    Traceback (most recent call last):
+    ...
+    TypeError name must be an integer
+
+Print Exception ValueError, value 0
+    >>> bg = BaseGeometry()
+    >>> bg.integer_validator("age", 0)
+    >>> print("[{}] {}".format(e.__class__.__name__, e))
+    [ValueError] age must be greater than 0
+
+Print Exception ValueError, value negative
+    >>> bg = BaseGeometry()
+    >>> bg.integer_validator("distance", -4)
+    >>> print("[{}] {}".format(e.__class__.__name__, e))
+    [ValueError] distance must be greater than 0
