@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """Module for BaseGeometry class
 """
-BaseGeometry = __import__('7-base_geometry').BaseGeometry
+
 
 class BaseGeometry:
     """Class for BaseGeometry
@@ -28,6 +28,7 @@ class BaseGeometry:
             raise TypeError("{} must be an integer".format(name))
         if value <= 0:
             raise ValueError("{} must be greater than 0".format(name))
+
 
 class Rectangle(BaseGeometry):
     """Class for rectangle that inherits from BaseGeometry
