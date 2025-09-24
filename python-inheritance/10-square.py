@@ -57,7 +57,7 @@ class Rectangle(BaseGeometry):
         return ("[Rectangle] {}/{}".format(self.__width, self.__height))
 
 
-class Square(BaseGeometry):
+class Square(Rectangle):
     """Class for Square that inherits from BaseGeometry
     """
     def __init__(self, size):
@@ -68,10 +68,11 @@ class Square(BaseGeometry):
         """
         self.integer_validator("size", size)
         self.__size = size
+        super().__init__(self.__size, self.__size)
 
     def area(self):
         """Class method for get the area of a square.
         Returns:
             Area of square.
         """
-        return self.__size * self.__size
+        return super().area()
