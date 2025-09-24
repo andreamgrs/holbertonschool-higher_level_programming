@@ -3,6 +3,7 @@
 """
 Rectangle = __import__('9-rectangle').Rectangle
 
+
 class Square(Rectangle):
     """Class for Square that inherits from BaseGeometry
     """
@@ -16,14 +17,12 @@ class Square(Rectangle):
         super().__init__(size, size)
         self.__size = size
 
-
     def area(self):
         """Class method for get the area of a square.
         Returns:
             Area of square.
         """
         return super().area()
-    
 
     def __str__(self):
         """Special method for print string
