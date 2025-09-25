@@ -22,7 +22,7 @@ class Square(Rectangle):
         Returns:
             Area of square.
         """
-        return super().area()
+        return self.__size * self.__size
 
     def __str__(self):
         """Special method for print string
