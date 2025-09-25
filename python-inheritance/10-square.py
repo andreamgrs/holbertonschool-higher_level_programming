@@ -14,7 +14,7 @@ class Square(Rectangle):
             size(int): size of the square (private).
         """
         self.integer_validator("size", size)
-        super().__init__(size, size) #call the constructor of Rectangle
+        super().__init__(size, size)  #: call the constructor of Rectangle
         self.__size = size
 
     def area(self):
@@ -23,4 +23,3 @@ class Square(Rectangle):
             Area of square.
         """
         return self.__size * self.__size
-#:print(issubclass(Square, Rectangle))
