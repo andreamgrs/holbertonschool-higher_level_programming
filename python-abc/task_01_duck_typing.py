@@ -15,19 +15,16 @@ class Shape(ABC):
 
 class Circle(Shape):
     def __init__(self, radius):
-        self.radius = radius
+        if radius < 0:
+            self.radius = abs(radius)
+        else:
+            self.radius = radius
 
     def area(self):
-        if self.radius < 0:
-            return (-(pi * (self.radius ** 2)))
-        else:
-            return (pi * (self.radius ** 2))
+        return (pi * (self.radius ** 2))
 
     def perimeter(self):
-        if self.radius < 0:
-            return (-(pi * (self.radius * 2)))
-        else:
-            return (pi * (self.radius * 2))
+        return (pi * (self.radius * 2))
 
 
 class Rectangle(Shape):
