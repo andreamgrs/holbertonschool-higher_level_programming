@@ -20,5 +20,5 @@ class VerboseList(list):
             print("Popped [{}] from the list.".format(item))
             return item
         else:
-            print("Popped [{}] from the list.".format(my_item))
-            super().pop(my_item)
+            item = super().pop(my_item)
+            print("Popped [{}] from the list.".format(item))
