@@ -44,7 +44,7 @@ class Student:
             Key will be the public attribute name.
             Value will be the value of the public attribute.
         """
-        if len(json) != 0:
+        if json:  #: checks that json is not None and != to 0
             self.first_name = json["first_name"]
             self.last_name = json["last_name"]
             self.age = json["age"]
