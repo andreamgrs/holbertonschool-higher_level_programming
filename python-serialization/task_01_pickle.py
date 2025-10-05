@@ -9,6 +9,9 @@ class CustomObject:
         self.age = age
         self.is_student = is_student
 
+        if self.is_student == False:
+            return None
+
     def display(self):
         print("Name: {}".format(self.name))
         print("Age: {}".format(self.age))

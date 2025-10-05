@@ -2,7 +2,7 @@
 from task_01_pickle import CustomObject
 
 # Create an instance of CustomObject
-obj = CustomObject(name="John", age=25, is_student=True)
+obj = CustomObject(name="John", age=25, is_student=False)
 print("Original Object:")
 obj.display()
 
