@@ -26,16 +26,18 @@ def fetch_and_save_posts():
         data = response.json()
         struct_data = []
         for post in data:
-                dict_posts = {
+            dict_posts = {
                 'id': post['id'],
                 'title': post['title'],
                 'body': post['body']
             }
-        struct_data.append(dict_posts)
+            struct_data.append(dict_posts)
 
         with open("posts.csv", mode="w", newline='', encoding="utf-8") as file:
             writer = csv.DictWriter(file, fieldnames=['id', 'title', 'body'])
             writer.writeheader()
-            writer.writerows(struct_data)
+
+            for user_id in struct_data:
+                writer.writerow(user_id)
     else:
         print("Fail")
