@@ -14,6 +14,7 @@ def fetch_and_print_posts():
 
         for post in data:
             print(post['title'])
+        print("")
     else:
         print("Fail")
 
