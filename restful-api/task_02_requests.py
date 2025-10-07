@@ -3,25 +3,24 @@ import requests
 import csv
 
 
-response = requests.get('https://jsonplaceholder.typicode.com/posts')
+response = requests.get('https://jsonplaceholder.typicode.com/posts/')
 
 
 def fetch_and_print_posts():
-    print("Status code: {}".format(response.status_code))  
+    print("Status Code: {}".format(response.status_code))
 
     if response.status_code == 200:
         data = response.json()
 
         for post in data:
             print(post['title'])
-        print("")
     else:
         print("Fail")
 
 
 def fetch_and_save_posts():
 
-    print("Status code: {}".format(response.status_code))  
+    print("Status code: {}".format(response.status_code))
 
     if response.status_code == 200:
         data = response.json()
