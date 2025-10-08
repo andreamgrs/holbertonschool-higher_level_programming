@@ -41,8 +41,8 @@ def get_request():
     if not data_json or "username" not in data_json:
         return jsonify({"error": "Username is required"}), 400
 
-    username = data_json["username"] # get username from data_json
-    users[username] = data_json
+    username = data_json["username"] # get username from data_json that looks like {key: value}
+    users[username] = data_json # save all data_json by the key "username"
 
     return jsonify({
         "message": "User added",
