@@ -32,7 +32,7 @@ def verify_password(username, password):
         check_password_hash(users[username]["password"], password): # .get[username] obtain the hash from that user, check_p_h compares passwords 
         return username
 
-@app.get('/basic-protected') # method = GET
+@app.route("/basic-protected", methods = ["GET"]) # method = GET
 # To run it -> curl -u user1:password http://localhost:5000/basic-protected
 @auth.login_required # protects only users can access 
 def basic_protected():
@@ -51,13 +51,13 @@ def login():
         return jsonify(access_token=access_token)
     return jsonify({"error": "Invalid username or password"}), 401
  
-@app.route('/jwt-protected', methods=["GET"])
+@app.route("/jwt-protected", methods=["GET"])
 # To run it -> curl -X GET "http://localhost:5000/jwt-protected" -H "Authorization: Bearer TokenHere"
 @jwt_required()
 def jwt_protected():
     return "JWT Auth: Access Granted\n"
 
-@app.route('/admin-only', methods=["GET"])
+@app.route("/admin-only", methods=["GET"])
 # To run it -> curl -X GET "http://localhost:5000/admin-only" -H "Authorization: Bearer TokenHere"
 @jwt_required()
 def admi_only():
