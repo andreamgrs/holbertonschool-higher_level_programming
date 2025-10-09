@@ -6,7 +6,6 @@ from flask_httpauth import HTTPBasicAuth
 from flask_jwt_extended import create_access_token, get_jwt_identity, jwt_required, JWTManager
 from werkzeug.security import generate_password_hash, check_password_hash
 import jwt
-import datetime
 
 app = Flask(__name__)
 auth = HTTPBasicAuth()
@@ -28,11 +27,13 @@ def verify_password(username, password):
         return username
 
 @app.route('/basic-protected', methods=["GET"])
+# To run it -> curl -u user1:password http://localhost:5000/basic-protected
 @auth.login_required # protects only users can access 
 def basic_protected():
-    return "Basic Auth: Access Granted"
+    return "Basic Auth: Access Granted\n"
 
 @app.route("/login", methods=["POST"])
+# To run it, choose user1/admin1 -> curl -X POST http://localhost:5000/login -H "Content-Type: application/json" -d '{"username": "admin1", "password": "password"}'
 def login():
     # get the data from the user in json and convert it into a python dict 
     data = request.get_json()
@@ -45,18 +46,24 @@ def login():
     return jsonify({"error": "Invalid username or password"}), 401
  
 @app.route('/jwt-protected', methods=["GET"])
+# To run it -> curl -X GET "http://localhost:5000/jwt-protected" -H "Authorization: Bearer TokenHere"
 @jwt_required()
 def jwt_protected():
-    return "JWT Auth: Access Granted"
+    return "JWT Auth: Access Granted\n"
 
 @app.route('/admin-only', methods=["GET"])
+# To run it -> curl -X GET "http://localhost:5000/admin-only" -H "Authorization: Bearer TokenHere"
 @jwt_required()
 def admi_only():
     check_user = get_jwt_identity()
 
     if check_user not in users or users[check_user]["role"] != "admin":
         return jsonify({"error": "Admin access required"}), 403
-    return "Admin Access: Granted"
+    return "Admin Access: Granted\n"
+
+@auth.error_handler
+def unauthorized():
+    return jsonify({"error": "Unauthorized access"}), 401
 
 @jwt.unauthorized_loader
 def handle_unauthorized_error(err):
