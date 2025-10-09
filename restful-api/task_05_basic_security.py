@@ -67,7 +67,7 @@ def admi_only():
     return "Admin Access: Granted\n"
 
 
-@auth.login_error
+@auth.error_handler
 def unauthorized():
     return jsonify({"error": "Unauthorized"}), 401
 
