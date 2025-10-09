@@ -54,7 +54,7 @@ def login():
 # To run it -> curl -X GET "http://localhost:5000/jwt-protected" -H "Authorization: Bearer TokenHere"
 @jwt_required()
 def jwt_protected():
-    return "JWT Auth: Access Granted\n"
+    return "JWT Auth: Access Granted"
 
 @app.route("/admin-only", methods=["GET"])
 # To run it -> curl -X GET "http://localhost:5000/admin-only" -H "Authorization: Bearer TokenHere"
@@ -64,7 +64,7 @@ def admi_only():
 
     if check_user not in users or users[check_user]["role"] != "admin":
         return jsonify({"error": "Admin access required"}), 403
-    return "Admin Access: Granted\n"
+    return "Admin Access: Granted"
 
 
 @auth.error_handler
