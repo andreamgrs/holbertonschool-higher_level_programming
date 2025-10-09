@@ -8,14 +8,12 @@ from werkzeug.security import generate_password_hash, check_password_hash
 import jwt
 #import os
 #from dotenv import load_dotenv
-
 #load_dotenv() # dot look for everu file .env and look for any var inside
 
 app = Flask(__name__)
 auth = HTTPBasicAuth()
 
-# dont this one -> app.config["JWT_SECRET_KEY"] = "my_secret_key_1"
-# NEVER hardcode KEYS in apps: use .env
+# NEVER hardcode KEYS in apps: use .env -> app.config["JWT_SECRET_KEY"] = os.getenv("JWT_SECRET_KEY")
 app.config["JWT_SECRET_KEY"] = "my-secret-key"
 jwt = JWTManager(app)
 
@@ -37,6 +35,7 @@ def verify_password(username, password):
 @auth.login_required # protects only users can access 
 def basic_protected():
     return "Basic Auth: Access Granted\n"
+   
 
 @app.route("/login", methods=["POST"])
 # To run it, choose user1/admin1 -> curl -X POST http://localhost:5000/login -H "Content-Type: application/json" -d '{"username": "admin1", "password": "password"}'
@@ -67,6 +66,10 @@ def admi_only():
         return jsonify({"error": "Admin access required"}), 403
     return "Admin Access: Granted\n"
 
+
+@auth.error_handler
+def unauthorized():
+    return jsonify({"error": "Unauthorized"}), 401
 
 @jwt.unauthorized_loader
 def handle_unauthorized_error(err):
