@@ -6,17 +6,17 @@ from flask_httpauth import HTTPBasicAuth
 from flask_jwt_extended import create_access_token, get_jwt_identity, jwt_required, JWTManager
 from werkzeug.security import generate_password_hash, check_password_hash
 import jwt
-import os
-from dotenv import load_dotenv
+#import os
+#from dotenv import load_dotenv
 
-load_dotenv() # dot look for everu file .env and look for any var inside
+#load_dotenv() # dot look for everu file .env and look for any var inside
 
 app = Flask(__name__)
 auth = HTTPBasicAuth()
 
 # dont this one -> app.config["JWT_SECRET_KEY"] = "my_secret_key_1"
 # NEVER hardcode KEYS in apps: use .env
-app.config["JWT_SECRET_KEY"] = os.getenv("JWT_SECRET_KEY")
+app.config["JWT_SECRET_KEY"] = "my-secret-key"
 jwt = JWTManager(app)
 
 
