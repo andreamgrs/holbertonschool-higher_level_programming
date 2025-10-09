@@ -6,11 +6,17 @@ from flask_httpauth import HTTPBasicAuth
 from flask_jwt_extended import create_access_token, get_jwt_identity, jwt_required, JWTManager
 from werkzeug.security import generate_password_hash, check_password_hash
 import jwt
+import os
+from dotenv import load_dotenv
+
+load_dotenv() # dot look for everu file .env and look for any var inside
 
 app = Flask(__name__)
 auth = HTTPBasicAuth()
 
-app.config["JWT_SECRET_KEY"] = "my_secret_key_1"
+# dont this one -> app.config["JWT_SECRET_KEY"] = "my_secret_key_1"
+# NEVER hardcode KEYS in apps: use .env
+app.config["JWT_SECRET_KEY"] = os.getenv("JWT_SECRET_KEY")
 jwt = JWTManager(app)
 
 
@@ -26,7 +32,7 @@ def verify_password(username, password):
         check_password_hash(users[username]["password"], password): # .get[username] obtain the hash from that user, check_p_h compares passwords 
         return username
 
-@app.route('/basic-protected', methods=["GET"])
+@app.get('/basic-protected') # method = GET
 # To run it -> curl -u user1:password http://localhost:5000/basic-protected
 @auth.login_required # protects only users can access 
 def basic_protected():
@@ -61,9 +67,6 @@ def admi_only():
         return jsonify({"error": "Admin access required"}), 403
     return "Admin Access: Granted\n"
 
-@auth.error_handler
-def unauthorized():
-    return jsonify({"error": "Unauthorized access"}), 401
 
 @jwt.unauthorized_loader
 def handle_unauthorized_error(err):
