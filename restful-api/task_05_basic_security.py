@@ -34,7 +34,7 @@ def verify_password(username, password):
 # To run it -> curl -u user1:password http://localhost:5000/basic-protected
 @auth.login_required # protects only users can access 
 def basic_protected():
-    return "Basic Auth: Access Granted\n"
+    return "Basic Auth: Access Granted"
    
 
 @app.route("/login", methods=["POST"])
