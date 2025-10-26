@@ -15,7 +15,8 @@ if __name__ == "__main__":
     FROM cities JOIN states ON cities.state_id = states.id \
     WHERE states.name LIKE %s \
     ORDER BY cities.id ASC;", (sys.argv[4],))  # Add query
-    states = cursor.fetchall()
+    # This return tuples like [('Dallas,'), ('Houston',), etc..]
+    cities = cursor.fetchall()
 
-    for state in states:
-        print(state)
+    city_names = [city[0] for city in cities]
+    print(", ".join(city_names))
