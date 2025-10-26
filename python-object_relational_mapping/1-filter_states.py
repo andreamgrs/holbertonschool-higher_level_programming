@@ -13,7 +13,8 @@ if __name__ == "__main__":
                          passwd=sys.argv[2], db=sys.argv[3])
     cursor = db.cursor()  # To execute query
     cursor.execute("SELECT * \
-    FROM states WHERE name LIKE 'N%'\
+    FROM states WHERE name LIKE 'N%' \
+    AND name NOT LIKE 'n%'\
     ORDER BY id ASC;")  # Add query
     states = cursor.fetchall()
 
