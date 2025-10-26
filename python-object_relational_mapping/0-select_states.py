@@ -3,7 +3,6 @@ import MySQLdb
 import sys
 """
 Lists all states from the database hbtn_0e_0_usa
-Give permissions first with chmod +x .py
 """
 #Take the argument
 username = sys.argv[1]
