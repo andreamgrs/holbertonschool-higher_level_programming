@@ -18,5 +18,5 @@ if __name__ == "__main__":
     # This return tuples like [('Dallas,'), ('Houston',), etc..]
     cities = cursor.fetchall()
 
-    city_names = [city[0] for city in cities]
+    city_names = [city[0] for city in cities] #This takes only Dallas which is [0]
     print(", ".join(city_names))
