@@ -14,7 +14,6 @@ if __name__ == "__main__":
     cursor = db.cursor()  # To execute query
     cursor.execute("SELECT * \
     FROM states WHERE name LIKE 'N%' \
-    AND name NOT LIKE 'n%'\
     ORDER BY id ASC;")  # Add query
     states = cursor.fetchall()
 
