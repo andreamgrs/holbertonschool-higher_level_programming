@@ -17,10 +17,10 @@ if __name__ == "__main__":
                            pool_pre_ping=True)
     Session = sessionmaker(bind=engine)
     session = Session()
-    try:
-        state = session.query(State).order_by(State.id).first()
-        if state:
-            print("{}: {}".format(state.id, state.name))
-    except OperationalError as e:
+    
+    state = session.query(State).order_by(State.id).first()
+    if state:
+        print("{}: {}".format(state.id, state.name))
+    else:
         print("Nothing")
     session.close()
