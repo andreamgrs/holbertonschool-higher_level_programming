@@ -21,6 +21,6 @@ if __name__ == "__main__":
         state = session.query(State).order_by(State.id).first()
         if state:
             print("{}: {}".format(state.id, state.name))
-    except OperationalError:
-        pass
+    except OperationalError as e:
+        print("Nothing")
     session.close()
