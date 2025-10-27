@@ -6,7 +6,6 @@ Script that lists all State objects from the database hbtn_0e_6_usa
 from sqlalchemy import create_engine, Column, Integer, String
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
-from sqlalchemy.exc import OperationalError
 import sys
 from model_state import Base, State
 
@@ -17,7 +16,6 @@ if __name__ == "__main__":
                            pool_pre_ping=True)
     Session = sessionmaker(bind=engine)
     session = Session()
-    
     state = session.query(State).order_by(State.id).first()
     if state:
         print("{}: {}".format(state.id, state.name))
