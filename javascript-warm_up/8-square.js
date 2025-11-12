@@ -8,7 +8,7 @@ if (process.argv.length < 2 || isNaN(num)) {
 
 for (let col = 0; col < num; col++){
   for (let fil = 0; fil < num; fil++){
-    process.stdout.write('x');
+    process.stdout.write('X');
   }
   console.log("");
 }
