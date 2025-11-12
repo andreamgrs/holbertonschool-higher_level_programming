@@ -6,9 +6,9 @@ if (process.argv.length < 2 || isNaN(num)) {
   console.log('Missing size');
 }
 
-for (let col = 0; col < num; col++){
-  for (let fil = 0; fil < num; fil++){
+for (let col = 0; col < num; col++) {
+  for (let fil = 0; fil < num; fil++) {
     process.stdout.write('X');
   }
-  console.log("");
+  console.log('');
 }
