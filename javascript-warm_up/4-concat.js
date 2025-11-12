@@ -1,9 +1,9 @@
 #!/usr/bin/node
 
-if (process.argv.length > 3){
-    console.log(process.argv[2], 'is', process.argv[3]);
+if (process.argv.length > 3) {
+  console.log(process.argv[2], 'is', process.argv[3]);
 } else if (process.argv.length > 2) {
-    console.log(process.argv[2], 'is undifined');
-  } else if (process.argv.length === 2) {
-    console.log('undifined is undifined');
-  }
+  console.log(process.argv[2], 'is undefined');
+} else if (process.argv.length === 2) {
+  console.log('undefined is undefined');
+}
