@@ -1,7 +1,8 @@
 #!/usr/bin/node
+const obj = {
+  add: function (a, b) {
+    return a + b;
+  }
+};
 
-function add(a, b) {
-  return a + b;
-}
-
-module.exports = add;
+module.exports = obj;
