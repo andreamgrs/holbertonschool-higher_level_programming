@@ -21,7 +21,7 @@ def generate_invitations(template, attendees):
     for elem, attendee in enumerate(attendees, start=1):
         text = template
         for key in ['name', 'event_title', 'event_date', 'event_location']:
-            value = attendee.get(key) or "N/A"
+            value = attendee.get(key) or 'N/A'
             text = text.replace(f"{key}", value)
             
     if not exists(f"output_{elem}.txt"):
