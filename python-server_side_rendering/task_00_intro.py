@@ -2,16 +2,16 @@ from os.path import exists
 
 def generate_invitations(template, attendees):
     if not isinstance(template, str):
-        raise ValueError("template must be a string and not {type(template).__name__}")
+        print("template must be a string and not {type(template).__name__}")
     if not template:
-        raise ValueError("Template is empty, no output files generated.")
+        print("Template is empty, no output files generated.")
     
     if not isinstance(attendees, list):
-         raise ValueError("attendees must be a list of dictionaries and not {type(attendees).__name__}")
+        print("attendees must be a list of dictionaries and not {type(attendees).__name__}")
     if len(attendees) < 0:
-         raise ValueError("No data provided, no output files generated.")
+        print("No data provided, no output files generated.")
     if not attendees:
-        raise ValueError("Attendees cannot be empty")
+        print("Attendees cannot be empty")
     
     for elem, attendee in enumerate(attendees, start=1):
         text = template
