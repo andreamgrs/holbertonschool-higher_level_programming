@@ -1,0 +1,27 @@
+from os.path import exists
+
+def generate_invitations(template, attendees):
+    if not isinstance(template, str):
+        raise ValueError("template must be a string and not {type(template).__name__}")
+    if not template:
+        raise ValueError("Template is empty, no output files generated.")
+    
+    if not isinstance(attendees, list):
+         raise ValueError("attendees must be a list of dictionaries and not {type(attendees).__name__}")
+    if len(attendees) < 0:
+         raise ValueError("No data provided, no output files generated.")
+    if not attendees:
+        raise ValueError("Attendees cannot be empty")
+    
+    for elem, attendee in enumerate(attendees, start=1):
+        text = template
+        for key in ['name', 'event_title', 'event_date', 'event_location']:
+            value = attendee.get(key) or "N/A"
+            text = text.replace(f"{key}", value)
+            
+    if not exists(f"output_{elem}.txt"):
+        with open(f"output_{elem}.txt", "w", encoding="utf-8") as file:
+            file.write(text)
+    else:
+        print("File already exists")
+         
