@@ -7,7 +7,7 @@ if (process.argv.length <= 2) {
   process.exit();
 }
 
-if (num === 1 && process.argv[3] === NaN) {
+if (num === 1 && Number.isNaN(parseInt(process.argv[3], 10))) {
   console.log(0);
   process.exit();
 }
