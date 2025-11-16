@@ -22,7 +22,7 @@ def generate_invitations(template, attendees):
         text = template
         for key in ['name', 'event_title', 'event_date', 'event_location']:
             value = attendee.get(key) or 'N/A'
-            text = text.replace(f"{key}", value)
+            text = text.replace(f"{{{key}}}", value)
             
     if not exists(f"output_{elem}.txt"):
         with open(f"output_{elem}.txt", "w", encoding="utf-8") as file:
