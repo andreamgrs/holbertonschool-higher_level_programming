@@ -7,7 +7,7 @@ if (process.argv.length <= 2) {
   process.exit();
 }
 
-if (num === 1) {
+if (num === 1 && process.argv[3] === NaN) {
   console.log(0);
   process.exit();
 }
