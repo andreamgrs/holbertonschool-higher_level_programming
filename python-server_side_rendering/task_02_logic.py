@@ -17,9 +17,12 @@ def contact():
 
 @app.route('/items')
 def items():
-    with open("items.json", "r") as file:
-        data = json.load(file)
-    return render_template('items.html', items=data['items'])
+    try:
+        with open("items.json", "r") as file:
+            data = json.load(file)
+        return render_template('items.html', items=data['items'])
+    except FileNotFoundError:
+        return "No items found"
 
 if __name__ == '__main__':
     app.run(debug=True, port=5000)
