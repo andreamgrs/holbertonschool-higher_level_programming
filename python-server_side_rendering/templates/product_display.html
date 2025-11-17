@@ -21,8 +21,8 @@
         </tr>
         {% endfor %}
         {% else %}
-        <h1>No items found</h1>
-    {% endif %}
+            <p>{{ error }}</p>
+        {% endif %}
     </tr>
     </table>
     {% include 'footer.html' %}

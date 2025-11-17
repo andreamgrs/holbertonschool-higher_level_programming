@@ -33,7 +33,10 @@ def products():
     if product_id:
         with open("products.json", "r") as file:
             data = json.load(file)
-            products_with_id = [p for p in data if p['id'] == product_id]
+            products_with_id = [] #new list
+            for product in data:
+                if product['id'] == product_id:
+                    products_with_id.append(product)
             if not products_with_id:
                 return render_template('product_display.html', error="Product not found")
             return render_template('product_display.html', products=products_with_id)
@@ -48,7 +51,7 @@ def products():
             print(data)
         return render_template('product_display.html', products=data)
     else:
-        return "Wrong source", 400
+        return render_template('product_display.html', error="Wrong source")
 
 
 if __name__ == '__main__':
