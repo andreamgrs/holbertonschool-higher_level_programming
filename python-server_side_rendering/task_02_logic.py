@@ -20,7 +20,7 @@ def items():
     try:
         with open("items.json", "r") as file:
             data = json.load(file)
-            items = data.get('items', [])
+            items = data.get('items', [])  #if items doesnt exist pass an empty list
         return render_template('items.html', items=items)
     except FileNotFoundError:
         return "No items found"
