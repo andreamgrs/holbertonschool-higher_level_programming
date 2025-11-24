@@ -33,8 +33,8 @@ print(a is b)  # True (small ints are interned)
 ```
 #### Strings (Immutable)
 
-- == compare values.
-- is compares identities (same object in memory).
+- "==" compare values.
+- "is" compares identities (same object in memory).
 ```Python
 s1 = "BEST SCHOOL"
 s2 = "BEST SCHOOL"
@@ -64,7 +64,6 @@ print(l2)       # [1, 2, 3, 4]
 Python uses a model often described as **call by object reference** or **call by assignment.**
 - When you pass a variable to a function, Python passes a reference to the object the variable points to.
 - Inside the function, the parameter becomes a new variable pointing to the same object.
-- Whether changes persist depends on mutability.
 
 ### Example with a mutable object (list)
 In this example:
@@ -137,7 +136,7 @@ t = (list, 3)
 
 print(t)        # ([1, 2], 3)
 list.append(4)
-print(t)        # ([1, 2, 4], 3)  <-- tuple unchanged, but list inside mutated
+print(t)        # ([1, 2, 4], 3) -> tuple unchanged, but list inside mutated
 ```
 
 **Example Frozen Set**
@@ -197,8 +196,7 @@ These are **compile-time constants** defined in CPython’s source code (Include
 Together, they define the range of pre-allocated integers.
 
 CPython pre-allocates small integers because they are used constantly in programs, such as for loop counters, indexes, and flags. 
-- By reusing these objects instead of creating new ones each time, Python avoids repeated memory allocation and deallocation, which improves:
- - performance and efficiency. 
+- By reusing these objects instead of creating new ones each time, Python avoids repeated memory allocation and deallocation, which improves: performance and efficiency. 
 
 
 
