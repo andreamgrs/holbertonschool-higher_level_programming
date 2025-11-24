@@ -1,18 +1,18 @@
-#### Understanding Mutable vs Immutable Objects in Python!
+# Understanding Mutable vs Immutable Objects in Python!
 One of the most important concepts in Python is knowing the difference between mutable and immutable objects. This affects how variables behave, how functions work, and why sometimes your code doesn’t do what you expect.
 
-### Identity and Type
+## Identity and Type
 Every object in Python has an identity->id(), a type->type(), and a value.
 - Identity tells us which object in memory we’re talking about.
 - Type tells us what kind of object it is (list, int, str, etc.).
 - Value is the actual data stored.
 
-### Mutable vs Immutable
+## Mutable vs Immutable
 - Mutable objects: can be changed in place. Example: lists, dicts, sets.
 - Immutable objects: cannot be changed once created. Example: ints, strings, tuples. Any “change” creates a new object.
 
-## Examples
-# Integers (Immutable)
+### Examples
+#### Integers (Immutable)
 - Interning is when Python reuses the same object in memory for certain immutable values (like small integers and some strings).
 - Instead of creating a new object every time you write 89, Python keeps a single copy and makes all variables point to it.
 - This saves memory and speeds up comparisons.
@@ -22,7 +22,7 @@ a = 89
 b = 89
 print(a is b)  # True (small ints are interned)
 ```
-# Strings (Immutable)
+#### Strings (Immutable)
 
 - == compare values.
 - is compares identities (same object in memory).
@@ -32,7 +32,7 @@ s2 = "BEST SCHOOL"
 print(s1 == s2)  # True (same value)
 print(s1 is s2)  # May be False (different objects in memory because of the space)
 ```
-# Lists (Mutable)
+#### Lists (Mutable)
 
 - The + creates a new object, while += mutates the existing one.
 ```Python
@@ -88,11 +88,11 @@ a = increment(a)
 print(a)  # 2
 ```
 
-### Memory Hooks for remember
+## Memory Hooks for remember
 - Small ints and some strings → interned → is can be True.
 - Tuples, lists, dicts → usually new objects → is is False unless explicitly reused.
 
-## Example int and tuple
+### Example int and tuple
 ```Python
 a = 1
 b = 1
@@ -103,7 +103,7 @@ b = (1, 2)
 print(a is b)  # False (different tuple objects)
 ```
 
-## Example for lists
+### Example for lists
 - a += [...] → mutate in place → same id.
 - a = a + [...] → new object → different id
 ```Python
@@ -122,7 +122,7 @@ print(a is b)  # False (different tuple objects)
 >>> a += [4]
 >>> id(a)
 ```
-### Why does this matter?
+## Why does this matter?
 - Understanding mutability helps avoid bugs when passing objects to functions.
 - It explains why some changes “stick” and others don’t.
 - It clarifies the difference between value equality (==) and object identity (is).
